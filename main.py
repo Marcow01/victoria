@@ -92,7 +92,7 @@ msg['Subject'] = subject
 
 msg.attach(MIMEText(html_body, 'html'))
 
-if data.posts_count == 700:
+if data.posts_count < 700:
   try:
       with smtplib.SMTP(smtp_server, smtp_port) as server:
           server.starttls()
