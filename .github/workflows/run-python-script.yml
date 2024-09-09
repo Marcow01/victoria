@@ -2,7 +2,7 @@ name: script
 
 on:
   schedule:
-    - cron: '* * * * *' 
+    - cron: '*/2 * * * *' 
   workflow_dispatch:  
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'
+        python-version: '3.12.3'
 
     - name: Install dependencies
       run: |
@@ -29,4 +29,4 @@ jobs:
         EMAILPASSWORD: ${{ secrets.EMAILPASSWORD }}
         USER: ${{ secrets.USER }}
         PASSWORD: ${{ secrets.PASSWORD }}
-      run: python workflow/github/main.py
+      run: python ../workflow/github/main.py
