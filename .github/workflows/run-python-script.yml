@@ -1,9 +1,9 @@
-name: Run Python Script Every Minute
+name: script
 
 on:
   schedule:
-    - cron: '* * * * *'  # Executa a cada minuto
-  workflow_dispatch:  # Permite executar manualmente a partir da interface do GitHub
+    - cron: '* * * * *' 
+  workflow_dispatch:  
 
 jobs:
   run-script:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12' 
+        python-version: '3.12'
 
     - name: Install dependencies
       run: |
@@ -29,4 +29,4 @@ jobs:
         EMAILPASSWORD: ${{ secrets.EMAILPASSWORD }}
         USER: ${{ secrets.USER }}
         PASSWORD: ${{ secrets.PASSWORD }}
-      run: python workflow/main.py
+      run: python workflow/github/main.py
